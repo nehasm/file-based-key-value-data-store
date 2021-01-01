@@ -35,14 +35,18 @@ class CRD:
         data = {}
         if path.isfile(datastore):
             with open(datastore) as f:
-                portalocker.lock(f, portalocker.LOCK_EX)
-                data = json.load(f)
-                portalocker.unlock(f)
-                # file size exceeded 1GB size.
-                prev_data_obj = json.dumps(data)
-                if len(prev_data_obj) >= 1000000000:
-                    return False, "File Size Exceeded 1GB."
-
+                try:
+                    portalocker.lock(f, portalocker.LOCK_EX)
+                    data = json.load(f)
+                    portalocker.unlock(f)
+                except:
+                    print('The database is empty')
+                finally:
+                    # file size exceeded 1GB size.
+                    prev_data_obj = json.dumps(data)
+                    if len(prev_data_obj) >= 1000000000:
+                        return False, "File Size Exceeded 1GB."
+                
         # Check any key present in previous datastore data.
         for key in json_data.keys():
             if key in data.keys():

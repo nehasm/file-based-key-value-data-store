@@ -5,26 +5,16 @@ from crd.store import CreateData, ReadData, DeleteData
 from crd.store import CRD
 from foldercreate import FilePreprocess
 from config import DEFAULT_DB_PATH,DEFAULT_DB_NAME
-# set DEBUG = False when running on production server.
+
 DEBUG = True
-
-# Sets the host for the flask server.
 HOST = 'localhost'
-
-# Sets the port for the flask server.
 PORT = 5000
+SECRET_KEY = '\x14b\x8cx\xcf\xa5?7\xac\xf9\x1b?\xf8\\Z\x994\xe1\r2\n\xecw\xf3'
 
-# Secret Key for data-encryption/user-authentication.
-SECRET_KEY = 'e8c241g6ea6d4af4b29375bdc5xn27fa'
-
-
-# Adding/Enabling CommandLineArguments: --datastore
 parser = ArgumentParser()
 parser.add_argument('--datastore', help='Enter the datastore absolute path.')
 args = parser.parse_args()
 
-
-# Selecting the DataStore Directory.
 # Select user provided datastore path else, select the default path.
 if args.datastore:
     db_path = args.datastore

@@ -19,7 +19,7 @@ if not directory_created:
     exit(0)
 
 
-key = 'h'
+key = 'f'
 
 _data_found, message = CRD().check_DD(key, db_path)
 print(message)
