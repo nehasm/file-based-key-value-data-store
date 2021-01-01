@@ -26,3 +26,6 @@ Run `python test_cd.py` if you want to use the default database location, else u
 Run `python test_rd.py` if you want to use the default database location, else use `python test_rd.py --datastore=<absolute_path_of_your_datastore>`
 * Check Read Operation
 Run `python test_dd.py` if you want to use the default database location, else use `python test_dd.py --datastore=<absolute_path_of_your_datastore>`
+
+##### Note:
+The project is developed on Windows. However, you can use this on linux by modifying the portalocker library with fcntl library in store.py.
