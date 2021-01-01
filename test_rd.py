@@ -18,7 +18,7 @@ if not directory_created:
     print(f"Permission denied: You can not create the directory `{db_path}`.\n")
     exit(0)
 
-key = 'h'
+key = 'f'
 
 _data_found, message = CRD().check_RD(key, db_path)
 print(message)
